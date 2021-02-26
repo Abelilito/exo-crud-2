@@ -9,9 +9,9 @@
 require "faker"
 
 10.times do
-  post = Post.new(
+  articles = Article.new(
     title: Faker::Name.name,
-    content: Faker::Lorem.unique.exclude,
+    content: Faker::Lorem.paragraph(sentence_count: 3)
   )
   articles.save
 end
