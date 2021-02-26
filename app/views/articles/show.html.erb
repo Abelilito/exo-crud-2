@@ -1,5 +1,17 @@
-<h1><%= @article.title %></h1>
-- <%= link_to "edit", edit_article_path  %> -
-<%= link_to "delete", article_path(@article.id), method: :delete, data: { confirm: "Are you sure ?"}  %>
-<hr>
-<p><%= @article.content %></p>
+<div class="container">
+  <h1>
+    <%= @article.title %>
+    <span>
+      <%= link_to edit_article_path, class: "icon" do  %>
+        <%= icon('fas', 'pencil-alt') %>
+      <% end %>
+    </span>
+    <span>
+      <%= link_to article_path(@article.id), method: :delete, class: "icon", data: { confirm: "Are you sure ?"} do %>
+        <%= icon('fas', 'trash-alt') %>
+      <% end %>
+    </span>
+  </h1>
+  <hr>
+  <p><%= @article.content %></p>
+</div>
