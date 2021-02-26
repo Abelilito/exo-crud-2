@@ -13,6 +13,17 @@ class ArticlesController < ApplicationController
     @article = set_article
   end
 
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new(article_params)
+    @article.save
+
+    redirect_to article_path(@article)
+  end
+
   def update
     @article = set_article
     @article.update((article_params))
@@ -31,7 +42,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:task).permit(:title, :details, :completed)
+    params.require(:article).permit(:title, :content)
   end
 
   def set_article
